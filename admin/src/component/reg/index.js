@@ -18,8 +18,8 @@ class Login extends Component{
       console.log(err,data)
     })
   }
-  register=()=>{
-    this.props.history.push('./reg')
+  jump=()=>{
+    this.props.history.push('./login')
   }
   render(){
     console.log(this)
@@ -64,9 +64,9 @@ class Login extends Component{
             忘记密码
           </a>
         <Button type="primary" onClick={this.submit} className="login-form-button">
-            登录
+            注册
           </Button>
-          Or <a href=" " onClick={this.register}>注册</a>
+          Or <a href=" " onClick={this.jump}>登录</a>
 
         </Form.Item>
       </div>
