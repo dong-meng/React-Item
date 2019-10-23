@@ -10,8 +10,18 @@ import {HashRouter,Switch,Redirect,Route} from 'react-router-dom'
 const Reg = ComponentImport(()=>import('./component/reg'))
 const Login = ComponentImport(()=>import('./component/login'))
 const Admin = ComponentImport(()=>import('./component/admin'))
-const User = ComponentImport(()=>import('./component/user'))
 const Home = ComponentImport(()=>import('./component/home'))
+//用户管理
+const User = ComponentImport(()=>import('./component/user'))
+const UserList = ComponentImport(()=>import('./component/user/userList'))
+const UserDel = ComponentImport(()=>import('./component/user/userDel'))
+const UserAdd = ComponentImport(()=>import('./component/user/userAdd'))
+
+const Class = ComponentImport(()=>import('./component/class'))
+const Comments = ComponentImport(()=>import('./component/comment'))
+const Upload = ComponentImport(()=>import('./component/upload'))
+const Setting = ComponentImport(()=>import('./component/setting'))
+
 class RootRouter extends Component{
     render(){
       return(
@@ -25,11 +35,22 @@ class RootRouter extends Component{
            return(
             <Admin>
               <Route path="/admin/home" component={Home}></Route>
-              <Route path="/admin/user" component={User}></Route>
+              <Route path="/admin/user" render={()=>{
+                return(
+                  <div>
+                    <Route path="/admin/user/list" component={UserList} ></Route>
+                    <Route path="/admin/user/del" component={UserDel} ></Route>
+                    <Route path="/admin/user/add" component={UserAdd} ></Route> 
+                    <Route exact path='/admin/user/class' component={Class}></Route>
+                    <Route exact path='/admin/user/comment' component={Comments}></Route>
+                    <Route exact path='/admin/user/upload' component={Upload}></Route>
+                    <Route exact path='/admin/user/setting' component={Setting}></Route>
+                  </div>
+                )
+              }}></Route>
             </Admin>
            )
           }}></Route>
-
         </Switch>
 
         </HashRouter>
