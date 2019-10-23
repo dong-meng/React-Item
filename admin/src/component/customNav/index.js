@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {withRouter} from 'react-router-dom'
-import { Menu} from 'antd';
+import { Menu,Switch,Icon} from 'antd';
+import './index.less'
 const { SubMenu } = Menu;
 let navData=[
   {name:'首页',path:'/admin/home'},
@@ -19,7 +20,15 @@ let navData=[
 ]
 
 class Nav extends Component{
-  //这里面的递归函数可以学一下
+   state={
+    theme:'dark',
+    current:'1'
+  }
+  changeTheme=value=>{
+   return  this.setState({
+      theme:value?'dark':'skyblue'
+    })
+  }
   renderitem =(data)=>{
     return data.map((item,index)=>{
       if(item.children){
@@ -40,10 +49,23 @@ class Nav extends Component{
   }
   render(){
     console.log(this,'自定义导航')
-
+    
     return(
       <div className="nav">
-          <Menu  style={{ width: 200 }} mode="vertical">
+        <div className="top">
+        <Icon type="bulb" />
+          <Switch 
+          checked={this.state.theme === 'dark'}
+          onChange={this.changeTheme}
+          checkedChildren="dark"
+          unCheckedChildren="skyblue"  
+          />
+        </div>
+       
+          <Menu   theme={this.state.theme} 
+          selectedKeys={[this.state.current]}
+          style={{ width: 200}} 
+          mode="vertical" className="themeMenu">
             {this.renderitem(navData)}
           </Menu>
       </div>

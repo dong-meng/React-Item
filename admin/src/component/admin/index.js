@@ -1,23 +1,47 @@
 import React,{Component} from 'react'
+import { PageHeader, Button} from 'antd';
 import './index.less'
 import Nav from '../customNav/index'
 class Admin extends Component{
+ 
+
   render(){
+    console.log(this,'hah ')
     return(
 
     <div className="admin">
         <div className="admin-nav">
-          <Nav></Nav>
+          <Nav ></Nav>
         </div>
         <div className="admin-content">
-            <div>
-              头部信息
+          <div
+            style={{
+              backgroundColor: '#F5F5F5',
+              padding: 24,
+            }}
+          >
+            <PageHeader
+              avatar={{ src: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' }}
+              ghost={false}
+              
+              title="测试后台管理系统"
+              extra={[
+                <Button key="1" type="primary" onClick={()=>{
+                  window.location.href=  'http://localhost:3000/#/login'
+                }}>
+                  退出系统
+                </Button>
+              ]}
+            >
+       
+            </PageHeader>
+
             </div>
-            <div>
+            <div className="admin-middle">
               {this.props.children}
             </div>
-            <div>
-              底部信息
+            <div className="admin-footer">
+              这里是我们团队的作品
             </div>
         </div>
       </div>
