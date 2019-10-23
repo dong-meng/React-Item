@@ -23,7 +23,6 @@ class Admin extends Component{
             <PageHeader
               avatar={{ src: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png' }}
               ghost={false}
-              
               title="测试后台管理系统"
               extra={[
                 <Button key="1" type="primary" onClick={()=>{

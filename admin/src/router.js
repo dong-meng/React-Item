@@ -13,10 +13,9 @@ const Admin = ComponentImport(()=>import('./component/admin'))
 const Home = ComponentImport(()=>import('./component/home'))
 //用户管理
 const User = ComponentImport(()=>import('./component/user'))
-const UserList = ComponentImport(()=>import('./component/user/userList'))
-const UserDel = ComponentImport(()=>import('./component/user/userDel'))
-const UserAdd = ComponentImport(()=>import('./component/user/userAdd'))
 
+const Production = ComponentImport(()=>import('./component/production'))
+const New = ComponentImport(()=>import('./component/new'))
 const Class = ComponentImport(()=>import('./component/class'))
 const Comments = ComponentImport(()=>import('./component/comment'))
 const Upload = ComponentImport(()=>import('./component/upload'))
@@ -34,20 +33,15 @@ class RootRouter extends Component{
           <Route path="/admin" render={()=>{
            return(
             <Admin>
-              <Route path="/admin/home" component={Home}></Route>
-              <Route path="/admin/user" render={()=>{
-                return(
-                  <div>
-                    <Route path="/admin/user/list" component={UserList} ></Route>
-                    <Route path="/admin/user/del" component={UserDel} ></Route>
-                    <Route path="/admin/user/add" component={UserAdd} ></Route> 
-                    <Route exact path='/admin/user/class' component={Class}></Route>
-                    <Route exact path='/admin/user/comment' component={Comments}></Route>
-                    <Route exact path='/admin/user/upload' component={Upload}></Route>
-                    <Route exact path='/admin/user/setting' component={Setting}></Route>
-                  </div>
-                )
-              }}></Route>
+              <Route exact path="/admin/home" component={Home}></Route>
+              <Route exact path="/admin/user" component={User}></Route>
+              <Route exact path='/admin/class' component={Class}></Route>
+              <Route exact path='/admin/production' component={Production}></Route>
+              <Route exact path='/admin/new' component={New}></Route>
+              <Route exact path='/admin/comment' component={Comments}></Route>
+              <Route exact path='/admin/upload' component={Upload}></Route>
+              <Route exact path='/admin/setting' component={Setting}></Route>
+
             </Admin>
            )
           }}></Route>

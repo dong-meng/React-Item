@@ -6,17 +6,19 @@ const { SubMenu } = Menu;
 let navData=[
   {name:'首页',path:'/admin/home'},
   {name:'用户管理',
-   path:'/user',
-   children:[
-     {name:'用户列表',path:'/admin/user/list'},
-     {name:'添加用户',path:'/admin/user/add'},
-     {name:'删除用户',path:'/admin/user/del'},
-    ]
+   path:'/admin/user',
+  //  children:[
+  //    {name:'用户列表',path:'/admin/user/list'},
+  //    {name:'添加用户',path:'/admin/user/add'},
+  //    {name:'删除用户',path:'/admin/user/del'},
+  //   ]
   },
-  {name:'分类管理',path:'/admin/user/class'},
-  {name:'评论管理',path:'/admin/user/comment'},
-  {name:'上传管理',path:'/admin/user/upload'},
-  {name:'设置',path:'/admin/user/setting'},
+  {name:'分类管理',path:'/admin/class'},
+  {name:'产品管理',path:'/admin/production'},
+  {name:'新闻管理',path:'/admin/new'},
+  {name:'评论管理',path:'/admin/comment'},
+  {name:'上传管理',path:'/admin/upload'},
+  {name:'设置',path:'/admin/setting'},
 ]
 
 class Nav extends Component{
@@ -34,7 +36,6 @@ class Nav extends Component{
       if(item.children){
         return(
           <SubMenu title={item.name} key={index} onClick={()=>{
-
           }}>
             {this.renderitem(item.children)}
           </SubMenu>
