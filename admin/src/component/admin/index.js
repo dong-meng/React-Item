@@ -38,8 +38,8 @@ class Admin extends Component{
             </div>
             <div className="admin-middle">
               {this.props.children}
-            </div>
-            <div className="admin-footer">
+            </div> 
+            <div className="admin-footer" style={{position:'fixed',bottom:40}}>
               这里是我们团队的作品
             </div>
         </div>

@@ -5,14 +5,7 @@ import './index.less'
 const { SubMenu } = Menu;
 let navData=[
   {name:'首页',path:'/admin/home'},
-  {name:'用户管理',
-   path:'/admin/user',
-  //  children:[
-  //    {name:'用户列表',path:'/admin/user/list'},
-  //    {name:'添加用户',path:'/admin/user/add'},
-  //    {name:'删除用户',path:'/admin/user/del'},
-  //   ]
-  },
+  {name:'用户管理',path:'/admin/user'},
   {name:'分类管理',path:'/admin/class'},
   {name:'产品管理',path:'/admin/production'},
   {name:'新闻管理',path:'/admin/new'},
@@ -23,8 +16,7 @@ let navData=[
 
 class Nav extends Component{
    state={
-    theme:'dark',
-    current:'1'
+    theme:'dark'
   }
   changeTheme=value=>{
    return  this.setState({
@@ -49,7 +41,7 @@ class Nav extends Component{
     this.props.history.push(path)
   }
   render(){
-    console.log(this,'自定义导航')
+    // console.log(this,'自定义导航')
     
     return(
       <div className="nav">
@@ -64,7 +56,6 @@ class Nav extends Component{
         </div>
        
           <Menu   theme={this.state.theme} 
-          selectedKeys={[this.state.current]}
           style={{ width: 200}} 
           mode="vertical" className="themeMenu">
             {this.renderitem(navData)}
