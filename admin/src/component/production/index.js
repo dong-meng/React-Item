@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-
+import Avatar from './getImgPath'
 class Production extends Component{
   constructor(){
     super()
@@ -15,6 +15,7 @@ class Production extends Component{
     console.log(this.$axios,'axios')
     return(
       <div className="production">
+          <Avatar></Avatar>
           <input placeholder='请输入名称' onChange={(e)=>{
               this.setState({name:e.target.value})
           }}/>
@@ -32,9 +33,8 @@ class Production extends Component{
           }}/>
           <div onClick={()=>{
             console.log(1111)
-              this.$axios.get('/admin/user/reg',{
-                us:"asd",
-                ps:123
+              this.$axios.get('/erlangs/admin/user/us',{
+                us:"jake",
                 // name:this.state.name,
                 // price:this.state.price,
                 // type:this.state.type,
