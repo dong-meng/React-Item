@@ -25,7 +25,6 @@ var data =[
 ]
 class Classify extends Component{
   renderContent(data){
-      console.log(data)
      return  data.map((item,index)=>{
         return(
           <p >{item.msg}</p>

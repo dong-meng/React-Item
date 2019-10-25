@@ -3,10 +3,7 @@ import { PageHeader, Button} from 'antd';
 import './index.less'
 import Nav from '../customNav/index'
 class Admin extends Component{
- 
-
   render(){
-    console.log(this,'hah ')
     return(
 
     <div className="admin">
