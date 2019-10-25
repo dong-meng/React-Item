@@ -16,12 +16,7 @@ let navData=[
 
 class Nav extends Component{
    state={
-<<<<<<< Updated upstream
     theme:'dark'
-=======
-    theme:'dark',
-
->>>>>>> Stashed changes
   }
   changeTheme=value=>{
    return  this.setState({
@@ -61,10 +56,6 @@ class Nav extends Component{
         </div>
        
           <Menu   theme={this.state.theme} 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
           style={{ width: 200}} 
           mode="vertical" className="themeMenu">
             {this.renderitem(navData)}

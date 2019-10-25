@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 import store from './store/store'
+import axios from './utils/axios'
 import 'antd/dist/antd.css'
 // 全局引入样式文件
 // import App from './App';
 import RootRouter from './router'
 import * as serviceWorker from './serviceWorker';
-
+Component.prototype.$axios=axios
 ReactDOM.render(
     <Provider store={store}>
         <RootRouter /> 
