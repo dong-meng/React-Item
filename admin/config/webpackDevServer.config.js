@@ -81,7 +81,20 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
     },
     public: allowedHost,
-    proxy,
+    proxy:{
+      '/admin':{
+        target:'http://10.60.14.169:3000',
+        changeOrigin:true,
+      },
+      '/erlangs':{
+  
+        target:'http://10.60.14.29',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/erlangs':''
+        }
+      },
+    },
     before(app, server) {
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
