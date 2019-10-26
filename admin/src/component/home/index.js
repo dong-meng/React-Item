@@ -25,7 +25,7 @@ class Home extends Component{
     return(
       <div className="home">
         <div> 
-          这里是王海，翟科峰，姜凯，纪晓强的后台管理首页，
+          这里是王海，翟珂峰，姜凯，纪晓强的后台管理首页，
           <img src="http://img001.hc360.cn/m6/M03/34/D8/wKhQoVdKgEWEKrLEAAAAAOXEO8g217.jpg"/>
           <div className='homeFirst'>{this.renderList(firstData)}  </div>
          </div>

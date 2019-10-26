@@ -1,55 +1,44 @@
 import React,{Component} from 'react'
-import Avatar from './getImgPath'
-class Production extends Component{
+import {Button,Icon} from 'antd'
+import './prod.less'
+class Upload extends Component{
   constructor(){
     super()
     this.state={
-      name:'',
-      price:'',
-      type:'',
-      desc:'',
-      imgpath:''
+      value:'',
+      list:[]
     }
   }
   render(){
-    console.log(this.$axios,'axios')
     return(
-      <div className="production">
-          <Avatar></Avatar>
-          <input placeholder='请输入名称' onChange={(e)=>{
-              this.setState({name:e.target.value})
-          }}/>
-          <input placeholder='请输入价格' onChange={(e)=>{
-              this.setState({price:e.target.value})
-          }}/>
-          <input placeholder='请输入类型' onChange={(e)=>{
-              this.setState({type:e.target.value})
-          }}/>
-          <input placeholder='请输入描述' onChange={(e)=>{
-              this.setState({desc:e.target.value})
-          }}/>
-          <input placeholder='请输入图片地址' onChange={(e)=>{
-              this.setState({imgpath:e.target.value})
-          }}/>
-          <div onClick={()=>{
-            console.log(1111)
-              this.$axios.get('/erlangs/admin/user/us',{
-                us:"jake",
-                // name:this.state.name,
-                // price:this.state.price,
-                // type:this.state.type,
-                // desc:this.state.desc,
-                // imgpath:this.state.imgpath,
-              }).then((data)=>{
-                console.log(data)
-              })
-          }}>上传</div>
+      <div className="user">
+        <input placeholder='请输入查询关键字' onChange={(e)=>{
+              this.setState({value:e.target.value})
+          }}/><Button  onClick={()=>{
+            let token=window.localStorage.token
+             {this.$axios.get('/dahai123456/admin/dahai/update/get',{
+                  token:token,
+                  name:this.state.value
+               }).then((data)=>{
+                 console.log(data)
+               })
+            } 
+          }}><Icon type="search"/></Button>
+
+            {this.state.list.map((item,index)=>{
+              return(
+                <div key={index} className="prod">
+                  <h4>{item.title}</h4>
+                  <img src={item.imgPath}/>
+                  <span>{item.desc}</span>
+                  <span>{item.price}</span>
+                </div>
+              )
+            })}
       </div>
+
 
     )
   }
 }
-
-
-
-export default Production
+export default  Upload

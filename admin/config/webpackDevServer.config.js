@@ -82,16 +82,11 @@ module.exports = function(proxy, allowedHost) {
     },
     public: allowedHost,
     proxy:{
-      '/admin':{
-        target:'http://10.60.14.169:3000',
-        changeOrigin:true,
-      },
-      '/erlangs':{
-  
-        target:'http://10.60.14.29',
+      '/dahai123456':{
+        target:'http://10.60.14.113:3000',
         changeOrigin:true,
         pathRewrite:{
-          '^/erlangs':''
+          '^/dahai123456':''
         }
       },
     },

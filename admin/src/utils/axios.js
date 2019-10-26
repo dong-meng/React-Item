@@ -17,7 +17,6 @@ http.get=function(api,data){
     let params =qs.stringify(data)
     return new Promise((resolve,reject)=>{
         axios.get(api,params).then((res)=>{
-            console.log(res,"res")
             resolve(res)
         })
     })
