@@ -22,7 +22,7 @@ class Login extends Component{
     this.props.history.push('./login')
   }
   render(){
-    console.log(this)
+    // console.log(this)
     const { getFieldDecorator } = this.props.form;
     // console.log(getFieldDecorator)
     return(

@@ -33,7 +33,11 @@ class RootRouter extends Component{
           <Route path="/admin" render={()=>{
            return(
             <Admin>
+<<<<<<< HEAD
+              {/* <Redirect exact from="/admin" to="/admin/home">  </Redirect> */}
+=======
               {/* <Redirect  from="/admin" to="/admin/home">  </Redirect> */}
+>>>>>>> ade9f7a4c054b3bf14c9ae68b3f84c05de7999ce
               <Route exact path="/admin/home" component={Home}></Route>
               <Route exact path="/admin/user" component={User}></Route>
               <Route exact path='/admin/class' component={Class}></Route>
